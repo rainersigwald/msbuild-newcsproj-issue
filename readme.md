@@ -17,7 +17,7 @@ If you want to manually reproduce this
 4. Delete bin,obj folders by `gci . -Recurse -Include bin,obj | % { ri -Recurse -Force $_.FullName }` .. especially needed if the solution is open in Visual Studio as it silently regenerates those folders
 5. issue msbuild command by `msbuild .\ClassLibraryFw462NewProj\ClassLibraryFw462NewProj.csproj /p:SolutionDir=C:\temp\new-old-proj-mix-soln /p:Configuration=Debug /m /t:build`
 
-Note that `dotnet build` works but that suffers from the issue that projects with EF6 cannot be built using `dotnet` CLI and the CLI [team won't address it] (https://github.com/dotnet/cli/issues/8193#issuecomment-397672139)
+Note that `dotnet build` works but that suffers from the issue that projects with EF6 cannot be built using `dotnet` CLI and the CLI [team won't address it](https://github.com/dotnet/cli/issues/8193#issuecomment-397672139)
 
 ## Error output
 
