@@ -36,6 +36,8 @@ gci . -Recurse -Include bin,obj | % { ri -Recurse -Force $_.FullName }
 
 # And now it barfs :/
 # building in VS2017 (15.7.4) works just fine though
-msbuild .\ClassLibraryFw462NewProj\ClassLibraryFw462NewProj.csproj /p:SolutionDir=C:\temp\new-old-proj-mix-soln /p:Configuration=Debug /m /t:build
+$cwd=$PSScriptRoot # just point to current directory / soln dir
+msbuild .\ClassLibraryFw462NewProj\ClassLibraryFw462NewProj.csproj /p:SolutionDir=$cwd /p:Configuration=Debug /m /t:build
 
+# dump our msbuild version too
 msbuild /version
